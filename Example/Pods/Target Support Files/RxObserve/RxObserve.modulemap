@@ -1,0 +1,6 @@
+framework module RxObserve {
+  umbrella header "RxObserve-umbrella.h"
+
+  export *
+  module * { export * }
+}

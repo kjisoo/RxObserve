@@ -1,0 +1,22 @@
+{
+  "name": "RxObserve",
+  "version": "0.1.0",
+  "summary": "A short description of RxObserve.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/kjsoo/RxObserve",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "kjsoo": "kim@jisoo.net"
+  },
+  "source": {
+    "git": "https://github.com/kjsoo/RxObserve.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "RxObserve/Classes/**/*"
+}
