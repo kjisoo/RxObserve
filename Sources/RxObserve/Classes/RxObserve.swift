@@ -6,51 +6,40 @@
 
 import RxSwift
 
-
 public extension Reactive where Base: NSObject {
-  func observe<Value>(keyPath: KeyPath<Base, Value>, options: NSKeyValueObservingOptions) -> Observable<Value> {
-    return Observable<Value>.create({ (observer) -> Disposable in
-      let token = self.base.observe(keyPath, options: options, changeHandler: { (base, b) in
-        if let a = b.newValue {
-          observer.onNext(a)
+  func asObservable<Value>(keyPath: KeyPath<Base, Value>,
+                           options: NSKeyValueObservingOptions = [.initial, .new]) -> Observable<Value> {
+    return Observable<Value>.create({ [weak base] (observer) -> Disposable in
+      let token = base?.observe(keyPath, options: options, changeHandler: { (base, value) in
+        if let value = value.newValue {
+          observer.onNext(value)
         }
       })
       return Disposables.create {
-        token.invalidate()
+        token?.invalidate()
       }
     })
   }
   
-  func observe<Value>(keyPath: KeyPath<Base, Value>) -> Observable<Value> {
-    return observe(keyPath: keyPath, options: [.initial, .new, .prior, .old])
-  }
-  
-  func observe<Value: ExpressibleByNilLiteral>(keyPath: KeyPath<Base, Value>, options: NSKeyValueObservingOptions) -> Observable<Value> {
-    return Observable<Value>.create({ (observer) -> Disposable in
-      let token = self.base.observe(keyPath, options: options, changeHandler: { (base, b) in
-        observer.onNext(b.newValue ?? nil)
-        
+  func asObservable<Value: ExpressibleByNilLiteral>(keyPath: KeyPath<Base, Value>,
+                                                    options: NSKeyValueObservingOptions = [.initial, .new]) -> Observable<Value> {
+    return Observable<Value>.create({ [weak base] (observer) -> Disposable in
+      let token = base?.observe(keyPath, options: options, changeHandler: { (base, value) in
+        observer.onNext(value.newValue ?? nil)
       })
       return Disposables.create {
-        token.invalidate()
+        token?.invalidate()
       }
     })
   }
   
-  func observe<Value: ExpressibleByNilLiteral>(keyPath: KeyPath<Base, Value>) -> Observable<Value> {
-    return observe(keyPath: keyPath, options: [.initial, .new, .prior, .old])
-  }
-  
-  func o<Value>(keyPath: WritableKeyPath<Base, Value>) -> AnyObserver<Value> {
-    weak var seakBase = base
-    return AnyObserver<Value> { (event) in
+  func asObserver<Value>(keyPath: WritableKeyPath<Base, Value>) -> AnyObserver<Value> {
+    return AnyObserver<Value> { [weak base] (event) in
       switch event {
       case .next(let value):
-        seakBase?.setValue(value, forKey: NSExpression(forKeyPath: keyPath).keyPath)
+        base?[keyPath: keyPath] = value
       case .error(_): break
-        
       case .completed: break
-        
       }
     }
   }
