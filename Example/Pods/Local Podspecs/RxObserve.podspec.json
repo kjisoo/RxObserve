@@ -3,20 +3,28 @@
   "version": "0.1.0",
   "summary": "A short description of RxObserve.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/kjsoo/RxObserve",
+  "homepage": "https://github.com/kjisoo/RxObserve",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "kjsoo": "kim@jisoo.net"
+    "kjisoo": "kim@jisoo.net"
   },
   "source": {
-    "git": "https://github.com/kjsoo/RxObserve.git",
+    "git": "https://github.com/kjisoo/RxObserve.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "RxObserve/Classes/**/*"
+  "source_files": "Sources/**/*.swift",
+  "dependencies": {
+    "RxSwift": [
+      ">= 4.0"
+    ],
+    "RxCocoa": [
+      ">= 4.0"
+    ]
+  }
 }

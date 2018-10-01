@@ -2,7 +2,6 @@
 
 import Quick
 import Nimble
-import RxObserve
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {
