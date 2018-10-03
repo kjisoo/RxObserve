@@ -1,8 +1,8 @@
 {
   "name": "RxObserve",
   "version": "0.1.0",
-  "summary": "A short description of RxObserve.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "RxSwift Extension for easier use of observe.",
+  "description": "RxSwift Extension for easier use of observe.\nRxObserve is an extension that allows you to use observe with keypath.",
   "homepage": "https://github.com/kjisoo/RxObserve",
   "license": {
     "type": "MIT",
@@ -16,8 +16,10 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "8.0",
+    "osx": "10.9"
   },
+  "swift_version": "4.0",
   "source_files": "Sources/**/*.swift",
   "dependencies": {
     "RxSwift": [
