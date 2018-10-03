@@ -18,6 +18,6 @@ RxObserve is an extension that allows you to use observe with keypath.
 
   s.source_files = 'Sources/**/*.swift'
 
-  s.dependency 'RxSwift', '>= 4.0'
-  s.dependency 'RxCocoa', '>= 4.0'
+  s.dependency 'RxSwift', '~> 4.0'
+  s.dependency 'RxCocoa', '~> 4.0'
 end
