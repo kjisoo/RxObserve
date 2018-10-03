@@ -5,6 +5,7 @@
 //
 
 import RxSwift
+import RxCocoa
 
 public extension Reactive where Base: NSObject {
   func asObservable<Value>(keyPath: KeyPath<Base, Value>,
@@ -18,7 +19,7 @@ public extension Reactive where Base: NSObject {
       return Disposables.create {
         token?.invalidate()
       }
-    })
+    }).takeUntil(base.rx.deallocated)
   }
   
   func asObservable<Value: ExpressibleByNilLiteral>(keyPath: KeyPath<Base, Value>,
@@ -30,7 +31,7 @@ public extension Reactive where Base: NSObject {
       return Disposables.create {
         token?.invalidate()
       }
-    })
+    }).takeUntil(base.rx.deallocated)
   }
   
   func asObserver<Value>(keyPath: WritableKeyPath<Base, Value>) -> AnyObserver<Value> {
