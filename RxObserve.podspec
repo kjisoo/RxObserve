@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RxObserve'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'RxSwift Extension for easier use of observe.'
 
   s.description      = <<-DESC
