@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RxObserve'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'RxSwift Extension for easier use of observe.'
 
   s.description      = <<-DESC
@@ -14,7 +14,7 @@ RxObserve is an extension that allows you to use observe with keypath.
   s.source           = { :git => 'https://github.com/kjisoo/RxObserve.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
 
   s.source_files = 'Sources/**/*.swift'
 
