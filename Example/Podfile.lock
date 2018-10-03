@@ -1,9 +1,9 @@
 PODS:
   - RxCocoa (4.3.1):
     - RxSwift (~> 4.0)
-  - RxObserve (0.1.0):
-    - RxCocoa (>= 4.0)
-    - RxSwift (>= 4.0)
+  - RxObserve (0.2.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
 
 DEPENDENCIES:
@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
-  RxObserve: b780178eef9d2319baaa41bd1757b3e9ac0c1035
+  RxObserve: a2972f6fc3218b82955ff5391b8a3e38f2f5069f
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
 
 PODFILE CHECKSUM: 4e9467362bb370f8a4767173f86f1de50428d43a

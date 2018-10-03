@@ -1,6 +1,0 @@
-framework module Pods_RxObserve_Tests {
-  umbrella header "Pods-RxObserve_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}
