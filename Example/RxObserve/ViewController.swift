@@ -19,7 +19,6 @@ class ViewModel: NSObject {
     }
   }
   dynamic var list: [String] = []
-  dynamic var test: String? = ""
 
   private func createStubList() {
     var result: [String] = []
